@@ -8,7 +8,21 @@
     "vue qr",
     "vue qrcode"
   ],
-  "scripts": {
+  "scripts": {},
+  "devDependencies": {
+    "unbuild": "1.2.1",
+    "vite": "4.2.1",
+    "vue": "3.2.47",
+    "vue-demi": "0.14.0"
+  },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.0.0-rc.1",
+    "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
   },
   "author": {
     "name": "zhu-hong",
