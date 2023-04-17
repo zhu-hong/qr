@@ -10,6 +10,19 @@
   ],
   "scripts": {
   },
-  "author": "zhu-hong",
+  "author": {
+    "name": "zhu-hong",
+    "email": "zhxhyy@qq.com"
+  },
+  "sideEffects": false,
+  "homepage": "https://github.com/zhu-hong/qr",
+  "bugs": {
+    "url": "https://github.com/zhu-hong/qr/issues",
+    "email": "zhxhyy@qq.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhu-hong/qr.git"
+  },
   "license": "MIT"
 }
