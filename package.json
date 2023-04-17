@@ -1,0 +1,15 @@
+{
+  "name": "@zhu-hong/qr",
+  "version": "1.0.0",
+  "description": "support Vue2&3 QR code library",
+  "keywords": [
+    "qr",
+    "qrcode",
+    "vue qr",
+    "vue qrcode"
+  ],
+  "scripts": {
+  },
+  "author": "zhu-hong",
+  "license": "MIT"
+}
