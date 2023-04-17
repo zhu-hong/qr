@@ -41,5 +41,8 @@
     "type": "git",
     "url": "git+https://github.com/zhu-hong/qr.git"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@vitejs/plugin-vue": "4.1.0"
+  }
 }
