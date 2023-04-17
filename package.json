@@ -8,7 +8,10 @@
     "vue qr",
     "vue qrcode"
   ],
-  "scripts": {},
+  "scripts": {
+    "dev": "vite dev",
+    "build": "unbuild"
+  },
   "devDependencies": {
     "unbuild": "1.2.1",
     "vite": "4.2.1",
