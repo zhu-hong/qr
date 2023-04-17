@@ -1,3 +1,7 @@
+<script setup>
+import { QrCodeComponent } from '../src/index'
+</script>
+
 <template>
-  <div>1243</div>
+  <QrCodeComponent />
 </template>
