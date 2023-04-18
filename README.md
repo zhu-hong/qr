@@ -7,6 +7,9 @@
 - 🏗 支持`svg`或`canvas`渲染
 - 📦 支持自定义渲染（提供二维码编码函数）
 
+[example](https://643e47ae0cb6cf0008ee9c97--storied-fudge-2d68b2.netlify.app)
+[git](https://github.com/zhu-hong/qr)
+
 ## install
 
 ```sh
