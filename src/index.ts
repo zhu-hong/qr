@@ -9,6 +9,8 @@ const levels: Record<Level, qrcodegen.QrCode.Ecc> = {
   H: qrcodegen.QrCode.Ecc.HIGH,
 }
 
+const encodeText = (content: string, level: Level = 'H'): boolean[][] => qrcodegen.QrCode.encodeText(content, levels[level]).getModules()
+
 function generatePath(modules: boolean[][], margin: number = 0): string {
   const ops: string[] = []
   modules.forEach((row, y) => {
@@ -208,7 +210,7 @@ export const QrCode = defineComponent({
   },
   computed: {
     modules() {
-      return qrcodegen.QrCode.encodeText(this.content, levels[this.level]).getModules()
+      return encodeText(this.content, this.level)
     },
   },
   render() {
@@ -222,5 +224,3 @@ export const QrCode = defineComponent({
     )
   }
 })
-
-export const generateModules = (content: string, level: Level = 'H'): boolean[][] => qrcodegen.QrCode.encodeText(content, levels[level]).getModules()

@@ -1,25 +1,44 @@
 <script setup>
-import { ref } from 'vue'
-import { QrCodeComponent } from '../src/index'
+import { ref, computed } from 'vue'
+import { QrCode } from '../src/index'
+import { encodeText } from '../src/util'
 
 const content = ref('🙏')
 const size = ref(500)
 const margin = ref(false)
 const useSvg = ref(true)
+
+const modules = computed(() => encodeText(content.value))
 </script>
 
 <template>
   大小：
   <input type="range" v-model="size" min="-100" max="1000">
   <br>
+  <br>
   内容：
   <input type="text" v-model="content">
+  <br>
   <br>
   外边距：
   <input type="checkbox" v-model="margin">
   <br>
-  svg渲染：
-  <input type="checkbox" v-model="useSvg">
   <br>
-  <QrCodeComponent :content="content" :size="size" :margin="margin" :use-svg="useSvg" />
+  <div style="display: flex; justify-content: space-between;">
+    <div>
+      使用svg渲染？：
+      <input type="checkbox" v-model="useSvg">
+      （否则为canvas）
+      <br>
+      <QrCode :content="content" :size="+size" :margin="margin" :use-svg="useSvg" />
+    </div>
+    <div>
+      自定义渲染（如div）
+      <div>
+        <div v-for="row of modules" style="display: flex;">
+          <div v-for="cell of row" :style="{ 'width': `${size/modules.length}px`, height: `${size/modules.length}px`, 'background-color': cell ? '#000000' : '#FFFFFF' }"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
