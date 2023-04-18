@@ -53,7 +53,7 @@ function generatePath(modules: boolean[][], margin: number = 0): string {
   return ops.join('')
 }
 
-export const QrCodeComponent = defineComponent({
+export const QrCode = defineComponent({
   name: 'QrCodeComponent',
   props: {
     content: {
