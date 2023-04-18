@@ -53,48 +53,6 @@ function generatePath(modules: boolean[][], margin: number = 0): string {
   return ops.join('')
 }
 
-export const QrCode = defineComponent({
-  name: 'QrCodeComponent',
-  props: {
-    content: {
-      type: String,
-      default: '👀',
-    },
-    size: {
-      type: [Number,String],
-      default: 100,
-      validator: (val) => !isNaN(val as number),
-    },
-    level: {
-      type: String as PropType<Level>,
-      default: 'H',
-    },
-    useSvg: {
-      type: Boolean as PropType<true | false>,
-      default: true,
-    },
-    margin: {
-      type: Boolean as PropType<true | false>,
-      default: false,
-    },
-  },
-  computed: {
-    modules() {
-      return qrcodegen.QrCode.encodeText(this.content, levels[this.level]).getModules()
-    },
-  },
-  render() {
-    return h(
-      this.useSvg ? svgRender : canvasRender,
-      {
-        modules: this.modules,
-        size: Math.abs(Number(this.size)),
-        margin: this.margin,
-      },
-    )
-  }
-})
-
 const svgRender = defineComponent({
   name: 'SvgRender',
   props: {
@@ -222,3 +180,47 @@ const canvasRender = defineComponent({
     })
   },
 })
+
+export const QrCode = defineComponent({
+  name: 'QrCodeComponent',
+  props: {
+    content: {
+      type: String as PropType<string>,
+      default: '👀',
+    },
+    size: {
+      type: Number as PropType<number>,
+      default: 100,
+      validator: (val) => !isNaN(val as number),
+    },
+    level: {
+      type: String as PropType<Level>,
+      default: 'H',
+    },
+    useSvg: {
+      type: Boolean as PropType<boolean>,
+      default: true,
+    },
+    margin: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+  },
+  computed: {
+    modules() {
+      return qrcodegen.QrCode.encodeText(this.content, levels[this.level]).getModules()
+    },
+  },
+  render() {
+    return h(
+      this.useSvg ? svgRender : canvasRender,
+      {
+        modules: this.modules,
+        size: Math.abs(Number(this.size)),
+        margin: this.margin,
+      },
+    )
+  }
+})
+
+export const generateModules = (content: string, level: Level = 'H'): boolean[][] => qrcodegen.QrCode.encodeText(content, levels[level]).getModules()
