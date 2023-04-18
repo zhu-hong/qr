@@ -6,3 +6,45 @@
 - ⚙️ 同时支持VUE 2 & 3（不挑）
 - 🏗 支持`svg`或`canvas`渲染
 - 📦 支持自定义渲染（提供二维码编码函数）
+
+## props
+
+```ts
+type Level = 'L' | 'M' | 'Q' | 'H'
+
+// 二维码内容
+content: {
+  type: String as PropType<string>,
+  default: '👀',
+},
+// 二维码尺寸（单位像素）
+size: {
+  type: Number as PropType<number>,
+  default: 100,
+  validator: (val) => !isNaN(val as number),
+},
+// 容错等级
+level: {
+  type: String as PropType<Level>,
+  default: 'H',
+},
+// 是否使用svg渲染
+useSvg: {
+  type: Boolean as PropType<boolean>,
+  default: true,
+},
+// 是否带点外框（留白）
+margin: {
+  type: Boolean as PropType<boolean>,
+  default: false,
+},
+```
+
+## 自定义渲染
+
+```ts
+import { encodeText } from '@zhu-hong/qr/util'
+
+// 返回一个boolean[][]，值为true则为黑块
+const modules = encodeText('content')
+```
