@@ -106,7 +106,7 @@ const svgRender = defineComponent({
       required: true,
     },
     margin: {
-      type: Number,
+      type: Boolean,
       required: true,
     },
   },
@@ -157,7 +157,7 @@ const canvasRender = defineComponent({
       required: true,
     },
     margin: {
-      type: Number,
+      type: Boolean,
       required: true,
     },
   },
