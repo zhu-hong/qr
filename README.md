@@ -1,4 +1,4 @@
-# QrCode
+# @zhu-hong/qr
 
 > 简单易用，提供完整的类型提示
 
@@ -6,6 +6,19 @@
 - ⚙️ 同时支持VUE 2 & 3（不挑）
 - 🏗 支持`svg`或`canvas`渲染
 - 📦 支持自定义渲染（提供二维码编码函数）
+
+## install
+
+```sh
+npm install @zhu-hong/qr
+```
+
+## useage
+
+```ts
+// ⚠️ not import QrCode from '@zhu-hong/qr'
+import { QrCode } from '@zhu-hong/qr'
+```
 
 ## props
 
