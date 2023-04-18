@@ -1,6 +1,6 @@
 import qrcodegen from './qrcodegen'
 
-type Level = 'L' | 'M' | 'Q' | 'H'
+export type Level = 'L' | 'M' | 'Q' | 'H'
 const levels: Record<Level, qrcodegen.QrCode.Ecc> = {
   L: qrcodegen.QrCode.Ecc.LOW,
   M: qrcodegen.QrCode.Ecc.MEDIUM,

@@ -1,15 +1,5 @@
 import { defineComponent, h, type PropType } from 'vue-demi'
-import qrcodegen from './qrcodegen'
-
-type Level = 'L' | 'M' | 'Q' | 'H'
-const levels: Record<Level, qrcodegen.QrCode.Ecc> = {
-  L: qrcodegen.QrCode.Ecc.LOW,
-  M: qrcodegen.QrCode.Ecc.MEDIUM,
-  Q: qrcodegen.QrCode.Ecc.QUARTILE,
-  H: qrcodegen.QrCode.Ecc.HIGH,
-}
-
-const encodeText = (content: string, level: Level = 'H'): boolean[][] => qrcodegen.QrCode.encodeText(content, levels[level]).getModules()
+import { encodeText, type Level } from './util'
 
 function generatePath(modules: boolean[][], margin: number = 0): string {
   const ops: string[] = []
@@ -72,13 +62,13 @@ const svgRender = defineComponent({
     },
   },
   computed: {
-    marginWidth() {
+    marginWidth(): number {
       return this.margin ? 1 : 0
     },
-    cells() {
+    cells(): number {
       return this.modules.length + this.marginWidth * 2
     },
-    fPath() {
+    fPath(): string {
       return generatePath(this.modules, this.marginWidth)
     },
   },
@@ -209,7 +199,7 @@ export const QrCode = defineComponent({
     },
   },
   computed: {
-    modules() {
+    modules(): boolean[][] {
       return encodeText(this.content, this.level)
     },
   },
