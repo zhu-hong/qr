@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "dev": "vite dev",
-    "build": "unbuild"
+    "build": "unbuild",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "vue-demi": "latest"
