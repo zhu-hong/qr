@@ -2,6 +2,20 @@
   "name": "@zhu-hong/qr",
   "version": "1.0.0",
   "description": "support Vue2&3 QR code library",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "default": "./dist/index.cjs",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "keywords": [
     "qr",
     "qrcode",
