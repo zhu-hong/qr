@@ -30,7 +30,7 @@
   ],
   "scripts": {
     "dev": "vite dev",
-    "build:site": "vite bulid",
+    "build:site": "vite build",
     "build": "unbuild",
     "prepublishOnly": "npm run build"
   },
