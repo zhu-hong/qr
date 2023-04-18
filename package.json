@@ -1,7 +1,7 @@
 {
   "name": "@zhu-hong/qr",
   "version": "1.0.0",
-  "description": "support Vue2&3 QR code library",
+  "description": "support Vue2&3 qrcode component and any javascript environment lib",
   "files": [
     "dist"
   ],
