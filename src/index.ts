@@ -63,6 +63,7 @@ export const QrCodeComponent = defineComponent({
     size: {
       type: [Number,String],
       default: 100,
+      validator: (val) => !isNaN(val as number),
     },
     level: {
       type: String as PropType<Level>,
