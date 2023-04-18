@@ -12,11 +12,14 @@
     "dev": "vite dev",
     "build": "unbuild"
   },
+  "dependencies": {
+    "vue-demi": "latest"
+  },
   "devDependencies": {
+    "@vitejs/plugin-vue": "4.1.0",
     "unbuild": "1.2.1",
     "vite": "4.2.1",
-    "vue": "3.2.47",
-    "vue-demi": "0.14.0"
+    "vue": "3.2.47"
   },
   "peerDependencies": {
     "@vue/composition-api": "^1.0.0-rc.1",
@@ -41,8 +44,5 @@
     "type": "git",
     "url": "git+https://github.com/zhu-hong/qr.git"
   },
-  "license": "MIT",
-  "dependencies": {
-    "@vitejs/plugin-vue": "4.1.0"
-  }
+  "license": "MIT"
 }
