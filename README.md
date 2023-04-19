@@ -8,7 +8,7 @@
 - 🍴 `svg`或`canvas`渲染
 - 👀 自定义渲染（提供二维码编码函数）
 
-[example](https://643e47ae0cb6cf0008ee9c97--storied-fudge-2d68b2.netlify.app)
+[example](https://643f508e85825e2b016f44ae--super-stardust-82c84e.netlify.app)
 
 [git](https://github.com/zhu-hong/qr)
 
