@@ -1,13 +1,15 @@
 # @zhu-hong/qr
 
-> 简单易用，提供完整的类型提示
+> 小而美，简单易用，同时支持Vue 2 & 3
 
-- 💡 小而美（未压缩的情况下37.3kb）
+- 🤏 小（未压缩的情况下37.3kb）
+- 🤖 智能提示（提供dts类型支持）
 - ⚙️ 同时支持VUE 2 & 3（不挑）
-- 🏗 支持`svg`或`canvas`渲染
-- 📦 支持自定义渲染（提供二维码编码函数）
+- 🍴 `svg`或`canvas`渲染
+- 👀 自定义渲染（提供二维码编码函数）
 
 [example](https://643e47ae0cb6cf0008ee9c97--storied-fudge-2d68b2.netlify.app)
+
 [git](https://github.com/zhu-hong/qr)
 
 ## install
@@ -59,7 +61,7 @@ margin: {
 ## 自定义渲染
 
 ```ts
-import { encodeText } from '@zhu-hong/qr/util'
+import { encodeText } from '@zhu-hong/qr'
 
 // 返回一个boolean[][]，值为true则为黑块
 const modules = encodeText('content')

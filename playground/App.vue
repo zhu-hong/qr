@@ -5,15 +5,23 @@ import { encodeText } from '../src/util'
 
 const content = ref('🙏')
 const size = ref(500)
+const level = ref('H')
 const margin = ref(false)
 const useSvg = ref(true)
 
-const modules = computed(() => encodeText(content.value))
+const modules = computed(() => encodeText(content.value, level.value))
 </script>
 
 <template>
   大小：
   <input type="range" v-model="size" min="-100" max="1000">
+  <br>
+  <br>
+  容错等级：
+  L：<input type="radio" v-model="level" name="level" value="L">
+  M：<input type="radio" v-model="level" name="level" value="M">
+  Q：<input type="radio" v-model="level" name="level" value="Q">
+  H：<input type="radio" v-model="level" name="level" value="H">
   <br>
   <br>
   内容：
@@ -30,7 +38,7 @@ const modules = computed(() => encodeText(content.value))
       <input type="checkbox" v-model="useSvg">
       （否则为canvas）
       <br>
-      <QrCode :content="content" :size="+size" :margin="margin" :use-svg="useSvg" />
+      <QrCode :content="content" :size="+size" :margin="margin" :use-svg="useSvg" :level="level" />
     </div>
     <div>
       自定义渲染（如div）

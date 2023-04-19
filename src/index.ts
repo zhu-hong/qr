@@ -1,5 +1,9 @@
-import { defineComponent, h, type PropType } from 'vue-demi'
+import { defineComponent, h, isVue2, type PropType } from 'vue-demi'
 import { encodeText, type Level } from './util'
+
+function hi(el: any, props?: { attrs?: Record<string, any>, props?: Record<string, any> }, children?: any[]) {
+  return h(el, isVue2 ? { props: props?.props, attrs: props?.attrs } : { ...props?.attrs, ...props?.props }, children)
+}
 
 function generatePath(modules: boolean[][], margin: number = 0): string {
   const ops: string[] = []
@@ -73,23 +77,29 @@ const svgRender = defineComponent({
     },
   },
   render() {
-    return h(
+    return hi(
       'svg',
       {
-        xmlns: 'http://www.w3.org/2000/svg',
-        width: this.size,
-        height: this.size,
-        viewBox: `0 0 ${this.cells} ${this.cells}`,
-        'shape-rendering': `crispEdges`,
+        attrs: {
+          xmlns: 'http://www.w3.org/2000/svg',
+          width: this.size,
+          height: this.size,
+          viewBox: `0 0 ${this.cells} ${this.cells}`,
+          'shape-rendering': `crispEdges`,
+        },
       },
       [
-        h('path', {
-          fill: '#FFFFFF',
-          d: `M0,0 h${this.cells}v${this.cells}H0z`,
+        hi('path', {
+          attrs: {
+            fill: '#FFFFFF',
+            d: `M0,0 h${this.cells}v${this.cells}H0z`,
+          },
         }),
-        h('path', {
-          fill: '#000000',
-          d: this.fPath,
+        hi('path', {
+          attrs: {
+            fill: '#000000',
+            d: this.fPath,
+          },
         }),
       ],
     )
@@ -165,16 +175,18 @@ const canvasRender = defineComponent({
     this.draw()
   },
   render() {
-    return h('canvas', {
-      width: this.size,
-      height: this.size,
-      style: { width: `${this.size}px`, height: `${this.size}px`},
+    return hi('canvas', {
+      attrs: {
+        width: this.size,
+        height: this.size,
+        style: { width: `${this.size}px`, height: `${this.size}px`},
+      },
     })
   },
 })
 
 export const QrCode = defineComponent({
-  name: 'QrCodeComponent',
+  name: 'QrCode',
   props: {
     content: {
       type: String as PropType<string>,
@@ -204,13 +216,17 @@ export const QrCode = defineComponent({
     },
   },
   render() {
-    return h(
+    return hi(
       this.useSvg ? svgRender : canvasRender,
       {
-        modules: this.modules,
-        size: Math.abs(Number(this.size)),
-        margin: this.margin,
+        props: {
+          modules: this.modules,
+          size: Math.abs(Number(this.size)),
+          margin: this.margin,
+        },
       },
     )
   }
 })
+
+export { encodeText } from './util'

@@ -1,27 +1,13 @@
 {
   "name": "@zhu-hong/qr",
   "version": "1.0.0",
-  "description": "support Vue2&3 qrcode component and any javascript environment lib",
+  "description": "Support Vue 2 & 3 QrCode Component And Any JavaScript Environment Lib",
   "files": [
     "dist"
   ],
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "default": "./dist/index.cjs",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    },
-    "./util": {
-      "default": "./dist/util.cjs",
-      "require": "./dist/util.cjs",
-      "import": "./dist/util.mjs",
-      "types": "./dist/util.d.ts"
-    }
-  },
   "keywords": [
     "qr",
     "qrcode",
