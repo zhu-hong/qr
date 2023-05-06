@@ -6,8 +6,8 @@ import { encodeText } from '../src/util'
 const content = ref('🙏')
 const size = ref(500)
 const level = ref('H')
-const margin = ref(false)
-const useSvg = ref(true)
+const padding = ref(false)
+const svg = ref(true)
 
 const modules = computed(() => encodeText(content.value, level.value))
 </script>
@@ -29,16 +29,16 @@ const modules = computed(() => encodeText(content.value, level.value))
   <br>
   <br>
   外边距：
-  <input type="checkbox" v-model="margin">
+  <input type="checkbox" v-model="padding">
   <br>
   <br>
   <div style="display: flex; justify-content: space-between;">
     <div>
       使用svg渲染？：
-      <input type="checkbox" v-model="useSvg">
+      <input type="checkbox" v-model="svg">
       （否则为canvas）
       <br>
-      <QrCode :content="content" :size="+size" :margin="margin" :use-svg="useSvg" :level="level" />
+      <QrCode :content="content" :size="+size" :padding="padding" :svg="svg" :level="level" />
     </div>
     <div>
       自定义渲染（如div）
