@@ -1,2 +1,2 @@
 export { encodeText } from './util'
-export { QrCode } from './vue'
+export { QrCode as VueQr } from './vue'
